@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Trabalhos da semana</h1>
+
+<div id="codes">
+  <% @codes.each do |code| %>
+    <span><%= code.description %></span>
+    <p>
+      <%= link_to "Resposta", code %>
+    </p>
+    <hr>
+  <% end %>
+</div>
+
+<%= link_to "New code", new_code_path %>
