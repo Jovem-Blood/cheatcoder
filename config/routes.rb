@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  root "codes#index"
+  root "weeks#index"
+  resources :weeks
   resources :codes
 end
