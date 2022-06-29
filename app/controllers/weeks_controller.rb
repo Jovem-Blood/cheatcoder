@@ -4,12 +4,11 @@ class WeeksController < ApplicationController
 
   # GET /weeks or /weeks.json
   def index
-  @weeks = Week.all.order(created_at: :desc)
+    @weeks = Week.all.order(created_at: :desc)
   end
 
   # GET /weeks/1 or /weeks/1.json
-  def show
-  end
+  def show; end
 
   # GET /weeks/new
   def new
@@ -17,8 +16,7 @@ class WeeksController < ApplicationController
   end
 
   # GET /weeks/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /weeks or /weeks.json
   def create
@@ -26,7 +24,7 @@ class WeeksController < ApplicationController
 
     respond_to do |format|
       if @week.save
-        format.html { redirect_to week_url(@week), notice: "Week was successfully created." }
+        format.html { redirect_to week_url(@week), notice: 'Week was successfully created.' }
         format.json { render :show, status: :created, location: @week }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +37,7 @@ class WeeksController < ApplicationController
   def update
     respond_to do |format|
       if @week.update(week_params)
-        format.html { redirect_to week_url(@week), notice: "Week was successfully updated." }
+        format.html { redirect_to week_url(@week), notice: 'Week was successfully updated.' }
         format.json { render :show, status: :ok, location: @week }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,19 +51,20 @@ class WeeksController < ApplicationController
     @week.destroy
 
     respond_to do |format|
-      format.html { redirect_to weeks_url, notice: "Week was successfully destroyed." }
+      format.html { redirect_to weeks_url, notice: 'Week was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_week
-      @week = Week.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def week_params
-      params.require(:week).permit(:title)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_week
+    @week = Week.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def week_params
+    params.require(:week).permit(:title)
+  end
 end

@@ -8,8 +8,7 @@ class CodesController < ApplicationController
   end
 
   # GET /codes/1 or /codes/1.json
-  def show
-  end
+  def show; end
 
   # GET /codes/new
   def new
@@ -17,8 +16,7 @@ class CodesController < ApplicationController
   end
 
   # GET /codes/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /codes or /codes.json
   def create
@@ -26,7 +24,7 @@ class CodesController < ApplicationController
 
     respond_to do |format|
       if @code.save
-        format.html { redirect_to code_url(@code), notice: "Code was successfully created." }
+        format.html { redirect_to code_url(@code), notice: 'Code was successfully created.' }
         format.json { render :show, status: :created, location: @code }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +37,7 @@ class CodesController < ApplicationController
   def update
     respond_to do |format|
       if @code.update(code_params)
-        format.html { redirect_to code_url(@code), notice: "Code was successfully updated." }
+        format.html { redirect_to code_url(@code), notice: 'Code was successfully updated.' }
         format.json { render :show, status: :ok, location: @code }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,19 +51,20 @@ class CodesController < ApplicationController
     @code.destroy
 
     respond_to do |format|
-      format.html { redirect_to codes_url, notice: "Code was successfully destroyed." }
+      format.html { redirect_to codes_url, notice: 'Code was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_code
-      @code = Code.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def code_params
-      params.require(:code).permit(:description, :code_text, :week_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_code
+    @code = Code.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def code_params
+    params.require(:code).permit(:description, :code_text, :week_id)
+  end
 end
