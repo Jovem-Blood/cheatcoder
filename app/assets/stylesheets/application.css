@@ -21,8 +21,12 @@
     --text: #dcdcdc;
     --text-light: #ababab;
     --border: #666;
-    --accent: #ffb300;
+    /* --accent: #ffb300; */
+    --accent: #6774ea;
     --code: #f06292;
     --preformatted: #ccc;
     --disabled: #111;
+}
+a {
+  text-decoration: none;
 }
