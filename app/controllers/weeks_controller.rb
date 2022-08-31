@@ -5,6 +5,16 @@ class WeeksController < ApplicationController
   # GET /weeks or /weeks.json
   def index
     @weeks = Week.all.order(created_at: :desc)
+    @mates = [
+      { name: 'Alex', colors: 'white' },
+      { name: 'Bruna', colors: 'black' },
+      { name: 'Camilla', colors: %w[limegreen dodgerblue] },
+      { name: 'Daniel', colors: 'green' },
+      { name: 'Guilherme', colors: 'red' },
+      { name: 'João', colors: 'orange' },
+      { name: 'Natã', colors: 'rebeccapurple' },
+      { name: 'Victor', colors: 'yellow' }
+    ]
   end
 
   # GET /weeks/1 or /weeks/1.json

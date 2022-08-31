@@ -21,6 +21,10 @@
   </head>
 
   <body>
+    <nav style="display: flex; justify-content: space-around">
+      <%= link_to 'Home', root_path %>
+      <%= link_to 'Todos os Exercícios', codes_path %>
+    </nav>
     <%= yield %>
   </body>
 </html>
