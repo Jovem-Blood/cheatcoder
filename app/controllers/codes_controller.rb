@@ -2,58 +2,40 @@ class CodesController < ApplicationController
   before_action :set_code, only: %i[show edit update destroy]
   http_basic_authenticate_with name: 'admin', password: 'beleriand.justdied', except: %i[index show]
 
-  # GET /codes or /codes.json
   def index
     @codes = Code.all
   end
 
-  # GET /codes/1 or /codes/1.json
   def show; end
 
-  # GET /codes/new
   def new
     @code = Code.new
   end
 
-  # GET /codes/1/edit
   def edit; end
 
-  # POST /codes or /codes.json
   def create
     @code = Code.new(code_params)
 
-    respond_to do |format|
-      if @code.save
-        format.html { redirect_to code_url(@code), notice: 'Code was successfully created.' }
-        format.json { render :show, status: :created, location: @code }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @code.errors, status: :unprocessable_entity }
-      end
+    if @code.save
+      redirect_to code_url(@code), notice: 'Code was successfully created.'
+    else
+       render :new, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /codes/1 or /codes/1.json
   def update
-    respond_to do |format|
-      if @code.update(code_params)
-        format.html { redirect_to code_url(@code), notice: 'Code was successfully updated.' }
-        format.json { render :show, status: :ok, location: @code }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @code.errors, status: :unprocessable_entity }
-      end
+    if @code.update(code_params)
+      redirect_to code_url(@code), notice: 'Code was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
-  # DELETE /codes/1 or /codes/1.json
   def destroy
     @code.destroy
 
-    respond_to do |format|
-      format.html { redirect_to codes_url, notice: 'Code was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to codes_url, notice: 'Code was successfully destroyed.'
   end
 
   private

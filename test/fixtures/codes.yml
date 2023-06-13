@@ -3,7 +3,9 @@
 one:
   description: MyText
   code_text: MyText
+  week_id: 1
 
 two:
-  description: MyText
-  code_text: MyText
+  description: AnotherText
+  code_text: AnotherText
+  week_id: 2
