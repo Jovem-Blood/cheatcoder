@@ -10,9 +10,10 @@ module Cheatcoder
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    config.hosts << IPAddr.new("0.0.0.0/0")        # All IPv4 addresses.
+    config.hosts << IPAddr.new("::/0")             # All IPv6 addresses.
 
     # Configuration for the application, engines, and railties goes here.
-    #
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
